@@ -24,15 +24,20 @@
                 <input type="text" name="name" class="form-control" value="{{$city->name}}">
             </div>
 
-            <div class="form-group">
-                <label>@lang('site.governorate')</label>
-                <select name="governorate_id" class="form-control">
-                    <option value="">@lang('site.all_governorate')</option>
-                    @foreach ($governorates as $id => $name)
-                        <option value="{{ $id }}" {{ $city->governorate_id == $id  ? 'selected' : '' }}>{{ $name }}</option>
-                    @endforeach
-                </select>
-            </div>
+
+
+                <div class="form-group">
+                    <label>@lang('site.governorate')</label>
+                    <select name="governorate_id" class="form-control">
+                        <option value="">@lang('site.all_governorate')</option>
+                        @foreach ($governorates as $id => $name)
+                            <option value="{{ $id }}" {{ $city->governorate_id == $id  ? 'selected' : '' }}>{{ $name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+
+
+
 
 
             <div class="form-group">

@@ -21,9 +21,10 @@ class CategoryController extends Controller
         return view('dashboard.categories.create');
     }
 
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-
+        $rules      = $this->getRules();
+        $messages   = $this->getMessage();
 
 
         $this->validate($request,$rules,$messages);
@@ -64,5 +65,19 @@ class CategoryController extends Controller
         $record->delete();
         session()->flash('success' , __('site.deleted_successfully'));
         return redirect()->route('dashboard.categories.index');
+    }
+    protected function getRules()
+    {
+        return [
+             'name'=> 'required'
+        ];
+    }
+    protected function getMessage()
+    {
+
+        return [
+            'category_name_en'              => trans('site.category_name_en'),
+
+        ];
     }
 }

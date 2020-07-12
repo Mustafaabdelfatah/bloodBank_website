@@ -108,6 +108,18 @@
                         <p>Categories</p>
                     </a>
                 </li>
+                 <li class="nav-item">
+                    <a href="{{route('dashboard.donations.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-bars"></i>
+                        <p>Donations</p>
+                    </a>
+                </li>
+                 <li class="nav-item">
+                    <a href="{{route('dashboard.posts.index')}}" class="nav-link">
+                        <i class="nav-icon fas fa-bars"></i>
+                        <p>Posts</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

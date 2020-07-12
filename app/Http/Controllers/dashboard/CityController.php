@@ -16,17 +16,19 @@ class CityController extends Controller
         return view('dashboard.cities.index',compact('records'));
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        $governorates = Governorate::pluck('name', 'id')->toArray();
+        $governorates = Governorate::pluck('name', 'id');
 
         return view('dashboard.cities.create', compact('governorates'));
     }
 
-    public function store(CityRequest $request)
+    public function store(Request $request)
     {
+        $rules      = $this->getRules();
+        $messages   = $this->getMessage();
 
-        $this->validate($request, $rules, $message);
+        $this->validate($request, $rules, $messages);
         $record = City::create($request->all());
         session()->flash('success' , __('site.added_successfully'));
         return redirect()->route('dashboard.cities.index');
@@ -65,5 +67,20 @@ public function destroy($id)
         return redirect()->route('dashboard.cities.index');
 
     }
+    protected function getRules()
+    {
+        return [
+             'name'=> 'required'
+        ];
+    }
+    protected function getMessage()
+    {
+
+        return [
+            'governorate_name_en'              => trans('site.governorate_name_en'),
+
+        ];
+    }
+
 
 }

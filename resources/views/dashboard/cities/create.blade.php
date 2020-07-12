@@ -27,11 +27,8 @@
                     <label>@lang('site.governorate')</label>
                     <select name="governorate_id" class="form-control">
                         <option value="">@lang('site.all_governorate')</option>
-
-                        @foreach ($governorates as $id => $name)
-
-                            <option value="{{ $id }}" {{ old('governorate_id') == $id ?
-                             'selected' : '' }}>{{ $name }}</option>
+                        @foreach ($governorates as $index => $name)
+                            <option value="{{ $index }}" {{ old('governorate_id') == $index ? 'selected' : '' }}>{{ $name }}</option>
                         @endforeach
                     </select>
                 </div>

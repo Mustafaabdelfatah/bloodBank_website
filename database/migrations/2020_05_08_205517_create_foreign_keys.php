@@ -10,83 +10,83 @@ class CreateForeignKeys extends Migration {
 	{
 		Schema::table('clients', function(Blueprint $table) {
 			$table->foreign('blood_type_id')->references('id')->on('blood_types')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('clients', function(Blueprint $table) {
 			$table->foreign('city_id')->references('id')->on('cities')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('cities', function(Blueprint $table) {
 			$table->foreign('governorate_id')->references('id')->on('governorates')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('posts', function(Blueprint $table) {
 			$table->foreign('category_id')->references('id')->on('categories')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_post', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_post', function(Blueprint $table) {
 			$table->foreign('post_id')->references('id')->on('posts')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('donation_request', function(Blueprint $table) {
 			$table->foreign('city_id')->references('id')->on('cities')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('donation_request', function(Blueprint $table) {
 			$table->foreign('blood_type_id')->references('id')->on('blood_types')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('donation_request', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('notifications', function(Blueprint $table) {
 			$table->foreign('donation_request_id')->references('id')->on('donation_request')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_notification', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_notification', function(Blueprint $table) {
 			$table->foreign('notification_id')->references('id')->on('notifications')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_governorate', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('client_governorate', function(Blueprint $table) {
 			$table->foreign('governorate_id')->references('id')->on('governorates')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('blood_type_client', function(Blueprint $table) {
 			$table->foreign('blood_type_id')->references('id')->on('blood_types')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 		Schema::table('blood_type_client', function(Blueprint $table) {
 			$table->foreign('client_id')->references('id')->on('clients')
-						->onDelete('no action')
-						->onUpdate('no action');
+						->onDelete('cascade')
+						->onUpdate('cascade');
 		});
 	}
 

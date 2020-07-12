@@ -54,7 +54,7 @@ class DonationRequestController extends Controller
     {
         $record = DonationRequest::findOrFail($id);
         $record->update($request->all());
-        flash()->success('تــم التحديث');
+        session()->flash('success' , __('site.updated_successfully'));
         return redirect(route('dashboard.donations.index'));
     }
 
@@ -62,22 +62,15 @@ class DonationRequestController extends Controller
     public function destroy($id)
     {
         $record = DonationRequest::find($id);
-        if (!$record) {
-            return response()->json([
-                'status'  => 0,
-                'message' => 'تعذر الحصول على البيانات'
-            ]);
-        }
 
         $record->delete();
-        return response()->json([
-                'status'  => 1,
-                'message' => 'تم الحذف بنجاح',
-                'id'      => $id
-            ]);
+
+        session()->flash('success' , __('site.deleted_successfully'));
+
+        return redirect()->route('dashboard.donations.index');
     }
 
-    public function getRules()
+    protected function getRules()
     {
         return [
             'patient_name'=>'required',
@@ -92,7 +85,7 @@ class DonationRequestController extends Controller
             'client_id'=>'required',
         ];
     }
-    public function getMessage()
+    protected function getMessage()
     {
 
         return [

@@ -27,7 +27,7 @@
                             <tr>
                                 <th>#</th>
 
-                                 <th class="text-center"> Name</th>
+                                <th class="text-center"> Name</th>
                                 <th class="text-center">Email</th>
                                 <th class="text-center">Phone</th>
                                 <th class="text-center">Message</th>

@@ -31,10 +31,11 @@ class GovernorateController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(GovernorateRequest $request)
+    public function store(Request $request)
     {
 
-
+        $rules      = $this->getRules();
+        $messages   = $this->getMessage();
 
         $this->validate($request,$rules,$messages);
 
@@ -44,12 +45,6 @@ class GovernorateController extends Controller
 
         return redirect()->route('dashboard.governorates.index');
     }
-
-    public function show($id)
-    {
-
-    }
-
 
     public function edit($id)
     {
@@ -71,17 +66,27 @@ class GovernorateController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $record = Governorate::findOrFail($id);
         $record->delete();
         session()->flash('success' , __('site.deleted_successfully'));
         return redirect()->route('dashboard.governorates.index');
+    }
+
+    protected function getRules()
+    {
+        return [
+             'name'=> 'required'
+        ];
+    }
+    protected function getMessage()
+    {
+
+        return [
+            'governorate_name_en'              => trans('site.governorate_name_en'),
+
+        ];
     }
 }

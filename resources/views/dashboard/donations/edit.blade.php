@@ -11,7 +11,7 @@
                     {{ method_field('put') }}
                     <div class="form-group">
                         <label> @lang('site.patient_name') </label>
-                        <input type="text" name="name" class="form-control" value="{{$model->patient_name}}">
+                        <input type="text" name="patient_name" class="form-control" value="{{$model->patient_name}}">
                     </div>
                     <div class="form-group">
                         <label> @lang('site.patient_phone') </label>

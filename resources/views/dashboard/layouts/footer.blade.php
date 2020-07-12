@@ -47,6 +47,20 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="url('/')}}/design/adminlte/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="url('/')}}/design/adminlte/dist/js/demo.js"></script>
+<script src="url('/')}}/design/adminlte/dist/js/demo.js">
+
+
+    $(".image").change(function() {
+   if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+        $('.image-preview').attr('src', e.target.result);
+        }
+
+        reader.readAsDataURL(input.files[0]); // convert to base64 string
+    }
+    });
+</script>
 </body>
 </html>

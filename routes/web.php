@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard.home');
-});
+    return redirect('dashboard');
+})->middleware('auth');
 
 Auth::routes();
 
